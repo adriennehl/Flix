@@ -24,8 +24,6 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    [self.activityIndicator startAnimating];
-    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -45,23 +43,30 @@
 
 -(void)fetchMovies{
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message:@"The Internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self fetchMovies];
-        }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
-    [alert addAction:cancelAction];
-    [alert addAction:retryAction];
+    [self.activityIndicator startAnimating];
     
+    // make request to get movie data
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
+               
+               // send error alert
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message: error.localizedDescription preferredStyle:(UIAlertControllerStyleAlert)];
+               UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                   [self fetchMovies];
+                   }];
+               UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+               [alert addAction:cancelAction];
+               [alert addAction:retryAction];
+               
                [self presentViewController:alert animated:YES completion:^{
                }];
            }
            else {
+               
+               // store the movie data
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                
                
