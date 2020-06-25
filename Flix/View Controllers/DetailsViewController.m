@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 @end
 
@@ -30,6 +32,8 @@
     // pretty much a string, but checks for valid URL
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     [self.posterView setImageWithURL:posterURL];
+    self.posterView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.posterView.layer.borderWidth = 1;
     
     NSString *backdropURLString = self.movie[@"backdrop_path"];
     NSString *fullBackdropURLString = [baseURLString stringByAppendingString:backdropURLString];
@@ -39,6 +43,8 @@
     
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
+    self.dateLabel.text = self.movie[@"release_date"];
+    self.ratingLabel.text = [NSString stringWithFormat: @"%@", self.movie[@"vote_average"]];
     
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
