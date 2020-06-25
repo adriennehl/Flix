@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  MovieCollectionCell.m
 //  Flix
 //
 //  Created by Adrienne Li on 6/24/20.
 //  Copyright © 2020 ahli. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MovieCollectionCell.h"
 
-@interface ViewController : UIViewController
-
+@implementation MovieCollectionCell
 
 @end
-
