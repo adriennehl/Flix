@@ -90,7 +90,11 @@
     // pretty much a string, but checks for valid URL
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     cell.posterView.image = [UIImage imageNamed: @"camera_icon.png"];
+    cell.posterView.alpha = 0;
     [cell.posterView setImageWithURL:posterURL];
+    [UIView animateWithDuration:1.5 animations:^{
+        cell.posterView.alpha = 1.0;
+    }];
     
     return cell;
 }

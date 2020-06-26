@@ -88,18 +88,31 @@
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     NSDictionary *movie = self.filteredData[indexPath.row];
+    
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
+    cell.ratingLabel.text = [NSString stringWithFormat: @"%@", movie[@"vote_average"]];
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
     
+    
     // pretty much a string, but checks for valid URL
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     cell.posterView.image = [UIImage imageNamed: @"camera_icon.png"];
+    cell.posterView.alpha = 0;
     [cell.posterView setImageWithURL:posterURL];
+    [UIView animateWithDuration:1.5 animations:^{
+        cell.posterView.alpha = 1.0;
+    }];
     
+    //customize selection style
+    UIView *backgroundView = [[UIView alloc] init];
+    UIColor *myColor = [UIColor colorWithRed: 180.0/255.0 green: 238.0/255.0 blue:250.0/255.0 alpha: 1.0];
+    backgroundView.backgroundColor = myColor;
+    cell.selectedBackgroundView = backgroundView;
+
     return cell;
 }
 

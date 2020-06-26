@@ -46,10 +46,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-kP-jGo">
-                                                    <rect key="frame" x="165" y="57" width="229" height="152"/>
+                                                    <rect key="frame" x="165" y="73" width="229" height="136"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">In the not-too-distant future, as a final response to crime and terrorism, the U.S. government plans to broadcast a signal that will make it impossible for anyone to knowingly break the law.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UNJ-7f-bpb">
+                                                    <rect key="frame" x="165" y="58" width="22" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3n6-z4-yy6">
+                                                    <rect key="frame" x="194" y="57" width="82" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -57,6 +69,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="posterView" destination="U28-f1-GfX" id="8KQ-8s-spn"/>
+                                            <outlet property="ratingLabel" destination="3n6-z4-yy6" id="FzC-gY-jvR"/>
                                             <outlet property="synopsisLabel" destination="DRB-kP-jGo" id="Kmx-ax-b6N"/>
                                             <outlet property="titleLabel" destination="5gk-Go-Lcd" id="qss-E2-tW3"/>
                                             <segue destination="YvL-zS-vxv" kind="show" id="tQw-f4-7fs"/>
@@ -97,11 +110,42 @@
                     <connections>
                         <segue destination="3c6-VX-ecH" kind="relationship" relationship="viewControllers" id="RDb-Vl-zMt"/>
                         <segue destination="f6j-6n-VXh" kind="relationship" relationship="viewControllers" id="rgM-cf-Y4O"/>
+                        <segue destination="4lq-nC-G7d" kind="relationship" relationship="viewControllers" id="R2z-CU-Pcp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6M-2b-iAp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042" y="-557"/>
+        </scene>
+        <!--Search All Movies-->
+        <scene sceneID="ozO-vY-b3L">
+            <objects>
+                <tableViewController id="4lq-nC-G7d" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="V6t-Gd-0kv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search Cell" rowHeight="233" id="cA6-oU-iGv">
+                                <rect key="frame" x="0.0" y="28" width="414" height="233"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cA6-oU-iGv" id="xue-V9-ODE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4lq-nC-G7d" id="tDK-Hs-yQC"/>
+                            <outlet property="delegate" destination="4lq-nC-G7d" id="wXR-7J-1BW"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Search All Movies" selectedImage="ticket_tabbar_icon" id="jz4-OB-vYf"/>
+                    <navigationItem key="navigationItem" id="rm6-D7-Lwi"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZA-fJ-ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1191.304347826087" y="137.94642857142856"/>
         </scene>
         <!--Superhero-->
         <scene sceneID="lyb-2b-uMr">
@@ -262,6 +306,7 @@
                     <connections>
                         <outlet property="backdropView" destination="1ao-By-gYf" id="qDf-Wa-W4m"/>
                         <outlet property="dateLabel" destination="xcr-gG-usL" id="QX0-EB-HRc"/>
+                        <outlet property="navigationBar" destination="xqW-S6-OxM" id="w2L-He-DCu"/>
                         <outlet property="posterView" destination="o04-xJ-rVc" id="jpG-he-ped"/>
                         <outlet property="ratingLabel" destination="3bB-KB-kVW" id="19k-zz-xR4"/>
                         <outlet property="synopsisLabel" destination="vWc-lZ-X9h" id="6wB-8B-qFM"/>
@@ -270,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Puq-Uf-2B2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="1604.4642857142856"/>
+            <point key="canvasLocation" x="132" y="1795"/>
         </scene>
         <!--Trailer View Controller-->
         <scene sceneID="ibz-jT-YJT">
@@ -316,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-1w-n8o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092.753623188406" y="1599.7767857142856"/>
+            <point key="canvasLocation" x="1041" y="1821"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="SVI-QL-wdi">
@@ -339,11 +384,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U5Q-rw-SFa"/>
+        <segue reference="tQw-f4-7fs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
+        <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
 </document>
