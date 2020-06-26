@@ -97,7 +97,7 @@
     
     // pretty much a string, but checks for valid URL
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    cell.posterView.image = nil;
+    cell.posterView.image = [UIImage imageNamed: @"camera_icon.png"];
     [cell.posterView setImageWithURL:posterURL];
     
     return cell;

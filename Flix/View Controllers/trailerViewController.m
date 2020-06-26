@@ -52,9 +52,7 @@
                NSURL *videoURL = [NSURL URLWithString:video];
 
                // Place the URL in a URL Request.
-               NSURLRequest *request = [NSURLRequest requestWithURL:videoURL
-                                                        cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                    timeoutInterval:10.0];
+               NSURLRequest *request = [NSURLRequest requestWithURL:videoURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
                // Load Request into WebView.
                [self.trailerWebView loadRequest:request];
             }

@@ -50,31 +50,31 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-           if (error != nil) {
-               
-               // send error alert
-               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message: error.localizedDescription preferredStyle:(UIAlertControllerStyleAlert)];
-               UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                   [self fetchMovies];
-                   }];
-               UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
-               [alert addAction:cancelAction];
-               [alert addAction:retryAction];
-               
-               [self presentViewController:alert animated:YES completion:^{
-               }];
-           }
-           else {
-               
-               // store the movie data
-               NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-               
-               
-               self.movies = dataDictionary[@"results"];
-               [self.collectionView reloadData];
-           }
+        if (error != nil) {
+            
+            // send error alert
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message: error.localizedDescription preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self fetchMovies];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+            [alert addAction:cancelAction];
+            [alert addAction:retryAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+            }];
+        }
+        else {
+            
+            // store the movie data
+            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            
+            self.movies = dataDictionary[@"results"];
+            [self.collectionView reloadData];
+        }
         [self.activityIndicator stopAnimating];
-       }];
+    }];
     [task resume];
 }
 
@@ -84,13 +84,13 @@
     NSDictionary *movie = self.movies[indexPath.item];
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-       NSString *posterURLString = movie[@"poster_path"];
-       NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-       
-       // pretty much a string, but checks for valid URL
-       NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-       cell.posterView.image = nil;
-       [cell.posterView setImageWithURL:posterURL];
+    NSString *posterURLString = movie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+    
+    // pretty much a string, but checks for valid URL
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    cell.posterView.image = [UIImage imageNamed: @"camera_icon.png"];
+    [cell.posterView setImageWithURL:posterURL];
     
     return cell;
 }
