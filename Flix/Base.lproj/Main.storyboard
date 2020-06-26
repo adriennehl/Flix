@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="PC5-e8-cX4">
             <objects>
                 <viewController id="xKA-zr-lfl" customClass="SearchViewController" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="SxF-PE-QyG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hmB-eW-a4p"/>
+                    <navigationItem key="navigationItem" title="Search" id="hmB-eW-a4p"/>
                     <connections>
                         <outlet property="searchBar" destination="QdW-rt-yuy" id="tgA-VB-ZTg"/>
                         <outlet property="tableView" destination="164-oW-d5E" id="9aG-Bv-yZO"/>
@@ -439,7 +439,7 @@
         <scene sceneID="6TL-Fj-wiL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uv8-Vu-tlr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search All Movies" selectedImage="reel_tabbar_icon" id="jz4-OB-vYf"/>
+                    <tabBarItem key="tabBarItem" title="Search All Movies" image="ticket_tabbar_icon" selectedImage="ticket_tabbar_icon" id="jz4-OB-vYf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GFi-kN-RYl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -460,8 +460,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
-        <image name="reel_tabbar_icon" width="25" height="25"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
+        <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
 </document>

@@ -130,6 +130,12 @@
     self.synopsisLabel.text = self.movie[@"overview"];
     self.dateLabel.text = self.movie[@"release_date"];
     self.ratingLabel.text = [NSString stringWithFormat: @"%@", self.movie[@"vote_average"]];
+    if ([self.movie[@"vote_average"] doubleValue] < 6){
+        self.ratingLabel.textColor = UIColor.redColor;
+    }
+    else{
+        self.ratingLabel.textColor = UIColor.greenColor;
+    }
     
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
