@@ -83,7 +83,7 @@
     
     NSDictionary *movie = self.movies[indexPath.item];
     
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/original";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
     
