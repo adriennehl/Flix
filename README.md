@@ -40,9 +40,13 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/Ws8uesliCh.gif' title='Now Playing Tab Walkthrough' width='' alt='Video Walkthrough' />
-<img src='http://g.recordit.co/wE4Kp4cFMm.gif' title='Superhero and Search Tabs Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://github.com/adriennehl/Flix/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202020-06-26%20at%2019.03.50.png' title='Network Error Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/hl8yjnAs9m.gif' title='Now Playing Tab Walkthrough' width='' alt='Video Walkthrough' />
+<img src='' title='Superhero Tab Walkthrough' width='' alt='Video Walkthrough' />
+<img src='' title='Search Tab Walkthrough' width='' alt='Video Walkthrough' />
+<img src='' title='Trailer Walkthrough' width='' alt='Video Walkthrough' />
+
+Network Error Message
+<img src='https://github.com/adriennehl/Flix/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%2011%20-%202020-06-26%20at%2019.03.50.png' title='Network Error Walkthrough' width=''/>
 
 GIF created with [RecordIt](http://recordit.co/).
 
