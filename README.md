@@ -40,7 +40,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/OsO7Eitv6Z.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/Ws8uesliCh.gif' title='Now Playing Tab Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/wE4Kp4cFMm.gif' title='Superhero and Search Tabs Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/OsO7Eitv6Z.gif' title='Network Error Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [RecordIt](http://recordit.co/).
 
